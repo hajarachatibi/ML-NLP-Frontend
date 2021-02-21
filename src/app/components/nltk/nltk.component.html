@@ -1,0 +1,66 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        h5 {
+            color: white;
+            font-weight: bolder;
+        }
+    </style>
+    <title>NLTK</title>
+</head>
+<div class="d-lg-flex half" style="height: max-content;">
+    <div class="contents order-2 order-md-1"
+        style="margin: 0 auto;  background-image: linear-gradient(to left, #4dffff 0%, #008080 31%, #004d4d 100%);">
+        <div class="header-dark">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" routerLink="/nltk"
+                                    style="color:white ; text-decoration: none; text-align: center;">NLP</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" routerLink="/"
+                                    style="color:white ; text-decoration: none; text-align: center;">Services</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div style="height: 100%; background: linear-gradient(to top, rgba(2, 2, 2, 0.623),rgba(87, 86, 86, 0.39))">
+            <div class="col-md-10" style="margin-left: auto; margin-right: auto; padding-top: 50px;">
+                <form #form="ngForm" (ngSubmit)="action(form)">
+                    <div class="form-group first">
+                        <label for="operation_type" style="color: white; font-weight: bold;"> Algorithme NLP: </label>
+                        <select name="operation_type" id="operation_type" ngModel class="form-control"
+                            style="height: 40px;">
+                            <option *ngFor="let opType of myOpTypes;" [value]="opType.idOpType">
+                                {{ opType.nameOpType }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group first">
+                        <label for="text_area" style="color: white; font-weight: bold;">Text:</label>
+                        <input type="text" ngModel name="text_area" id="text_area" class="form-control"
+                            style="height: 200px;" placeholder="Type your text here ..." />
+                    </div>
+                    <div class="form-group first">
+                        <button [disabled]="!form.value.operation_type " type="submit" class="btn btn-block"
+                            style="font-weight: bold; font-size: large; color: black; background-color: #ccffff;">
+                            Check Result
+                        </button>
+                    </div>
+                    <div class="form-group first">
+                        <label for="result" style="color: white; font-weight: bold;">Result:</label>
+                        <input [(ngModel)]="result" name="result" id="result" type="text" class="form-control"
+                            style="height: 200px;" placeholder="Result ...">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
